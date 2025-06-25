@@ -1,0 +1,17 @@
+# 📦 Ignoruj folder z zależnościami
+node_modules/
+
+# 🔐 Ignoruj dane wrażliwe
+.env
+config.json
+
+# 🧾 Pliki z danymi/statystykami (lokalne, nie nadają się na GitHub)
+history.json
+players.json
+data.json
+
+# 🧰 Ignoruj pliki tymczasowe/logi
+*.log
+
+# 🔄 Plik lock – odtwarzalny, niekonieczny do repo
+package-lock.json

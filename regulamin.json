@@ -1,0 +1,19 @@
+{
+  "title": "📜 Regulamin serwera",
+  "description": "Oto zasady, których należy przestrzegać:",
+  "fields": [
+    {
+      "name": "1. Szacunek",
+      "value": "Traktuj innych z szacunkiem."
+    },
+    {
+      "name": "2. Zakaz spamu",
+      "value": "Nie spamuj na kanałach."
+    },
+    {
+      "name": "3. NSFW",
+      "value": "Zabronione publikowanie treści NSFW."
+    }
+  ],
+  "color": "#3498db"
+}
