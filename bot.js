@@ -8,6 +8,7 @@ const {
 const fs = require('fs');
 const path = require('path');
 require('dotenv').config();
+const OWNER_ID = '1354492316727115857';
 
 // 📁 Śwcieżki do plików danych
 const DATA_FILE = 'players.json';
@@ -55,6 +56,15 @@ client.on('interactionCreate', async interaction => {
   const { commandName, options, user, channel } = interaction;
 
   if (interaction.isChatInputCommand()) {
+    const restrictedCommands = ['regulamin', 'regulamin_zaktualizuj', 'edytuj', 'reset'];
+    const OWNER_ID = '1354492316727115857';
+
+    if (restrictedCommands.includes(commandName) && user.id !== OWNER_ID) {
+      return interaction.reply({
+        content: '⛔ Tylko właściciel bota może używać tej komendy.',
+        ephemeral: true
+      });
+    }
     logAction(`📥 Użyto komendy \`/${commandName}\` przez ${user.tag}`, channel);
 
     if (!players[user.id]) players[user.id] = { wins: 0, losses: 0, history: [] };
@@ -322,3 +332,16 @@ client.on('interactionCreate', async interaction => {
 
 // 🔐 Logowanie klienta Discord
 client.login(process.env.TOKEN);
+
+const express = require('express');
+const app = express();
+
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('Bot działa 🟢');
+});
+
+app.listen(PORT, () => {
+  console.log(`🌐 Serwer działa na porcie ${PORT}`);
+});
